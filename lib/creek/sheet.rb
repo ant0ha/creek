@@ -102,7 +102,7 @@ module Creek
         last_col_index = @@excel_col_names[last_col]
         [*(0..last_col_index)].each do |i|
           col = col_name i
-          id = "#{col}"
+          id = "#{col}#{row_number}"
           unless cells.has_key? id
               new_cells[id] = nil
           else
