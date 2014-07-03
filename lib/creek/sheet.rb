@@ -67,6 +67,8 @@ module Creek
           shared, row, cells, cell = false, nil, {}, nil
           @book.files.file.open(path) do |xml|
             Nokogiri::XML::Reader.from_io(xml).each do |node|
+              logger.debug node
+
               if (node.name.eql? 'row') and (node.node_type.eql? opener)
                 row = node.attributes
                 row['cells'] = Hash.new
